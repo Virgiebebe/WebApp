@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: hello-world-tls
+  namespace: default
+spec:
+  secretName: hello-world-tls
+  issuerRef:
+    group: cert-manager.io
+    kind: ClusterIssuer
+    name: letsencrypt-prod
+  commonName: "localhost"
+  dnsNames:
+    - "localhost"
+  renewBefore: 360h
